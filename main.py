@@ -1,6 +1,6 @@
 import cv2
 
-img_file = 'sample.png'
+img_file = 'img/sample.png'
 img = cv2.imread(img_file)
 
 if img is not None:
