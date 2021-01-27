@@ -32,11 +32,30 @@ if cap.isOpened():
         ret, img = cap.read()
         if ret:
             cv2.imshow(video_file, img)
-            cv2.waitKey(25)
+            cv2.waitKey(10)
         else:
             break
 
 else:
     print("can't open video.")
+cap.release()
+cv2.destroyAllWindows()
+
+
+# 카메라(웹캠) 프레임 읽기
+
+cap = cv2.VideoCapture(0)
+if cap.isOpened():
+    while True:
+        ret, img = cap.read()
+        if ret:
+            cv2.imshow('camera', img)
+            if cv2.waitKey(1) != -1:
+                break
+        else:
+            print('no frame')
+            break
+else:
+    print("can't open camera")
 cap.release()
 cv2.destroyAllWindows()
