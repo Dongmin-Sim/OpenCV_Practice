@@ -32,7 +32,7 @@ if cap.isOpened():
         ret, img = cap.read()
         if ret:
             cv2.imshow(video_file, img)
-            cv2.waitKey(10)
+            cv2.waitKey(16)
         else:
             break
 
@@ -57,5 +57,26 @@ if cap.isOpened():
             break
 else:
     print("can't open camera")
+cap.release()
+cv2.destroyAllWindows()
+
+# OpenCV 카메라 비디오 속성 제어
+video_file = 'video/samplevideo.mov'
+
+cap = cv2.VideoCapture(video_file)
+if cap.isOpened():
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    delay = int(1000/fps)
+    print("FPS : %f, Delay : %dms"%(fps, delay))
+
+    while True:
+        ret, img = cap.read()
+        if ret:
+            cv2.imshow(video_file, img)
+            cv2.waitKey(delay)
+        else:
+            break
+else:
+    print("can't open video.")
 cap.release()
 cv2.destroyAllWindows()
