@@ -22,3 +22,21 @@ cv2.imwrite(save_file, img)
 
 cv2.waitKey()
 cv2.destroyAllWindows()
+
+# 동영상 및 카메라 프레임 읽기
+video_file = 'video/samplevideo.mov'
+cap = cv2.VideoCapture(video_file)
+
+if cap.isOpened():
+    while True:
+        ret, img = cap.read()
+        if ret:
+            cv2.imshow(video_file, img)
+            cv2.waitKey(25)
+        else:
+            break
+
+else:
+    print("can't open video.")
+cap.release()
+cv2.destroyAllWindows()
