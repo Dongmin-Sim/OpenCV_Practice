@@ -66,3 +66,22 @@ cv2.imshow('img', img)
 cv2.setMouseCallback('img', onMouse)  # 마우스 이벤트 등록
 cv2.waitKey()
 cv2.destroyAllWindows()
+
+# ------------------------------------------------------------------
+# 마우스로 관심영역 지정 함수(OpenCV3 selectROI)
+
+img = cv2.imread('img/man1.jpg')
+
+x, y, w, h = cv2.selectROI('selectROI', img, False)  # 창의 이름 / ROI 선택을 진행할 이미지, 선택영역 중심에 십자 모양 표시 여부
+
+if w and h:
+    roi = img[y : y+h, x : x+w]
+    cv2.imshow('cropped', roi)
+    cv2.moveWindow('cropped', 0, 0)
+    cv2.imwrite('img/cropped2.jpg', roi)
+
+cv2.imshow('img', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+print(x, y, w, h)
