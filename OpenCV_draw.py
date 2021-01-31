@@ -22,6 +22,7 @@ cv2.line(img, (100, 450), (400, 500), (0, 0, 255), 20, cv2.LINE_AA)  # 안티에
 cv2.line(img, (0, 0), (500, 500), (0, 0, 255))  # 대각선 그리기
 
 cv2.imshow('lines', img)
+cv2.moveWindow('lines', 0, 0)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
@@ -35,6 +36,7 @@ cv2.rectangle(img, (450, 200), (200, 450), (0, 0, 255), -1)  # 우상, 좌하 �
 
 
 cv2.imshow('rectangle', img)
+cv2.moveWindow('rectangle', 0, 0)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
@@ -63,6 +65,7 @@ cv2.ellipse(img, (50, 425), (50, 75), 15, 0, 180, (0, 0, 255))
 cv2.ellipse(img, (200, 425), (50, 75), 45, 0, 360, (0, 0, 0))
 
 cv2.imshow('circle', img)
+cv2.moveWindow('circle', 0, 0)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
@@ -83,5 +86,33 @@ cv2.putText(img, "PLAIN | ITALIC", (50, 430), cv2.FONT_HERSHEY_PLAIN | cv2.FONT_
 cv2.putText(img, "COMPLEX | ITALIC", (50, 470), cv2.FONT_HERSHEY_COMPLEX | cv2.FONT_ITALIC, 1, (0, 0, 0))
 
 cv2.imshow('Text', img)
+cv2.moveWindow('Text', 0, 0)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+
+# ----------------------------------------------------------------------
+# 창 관리
+
+file_path = "img/man1.jpg"
+img = cv2.imread(file_path)  # 이미지를 기본값으로 읽기
+img_gray = cv2.imread(file_path, cv2.IMREAD_GRAYSCALE)  # 이미지를 그레이 스케일로 읽기
+
+cv2.namedWindow('origin', cv2.WINDOW_AUTOSIZE)  # origin 이라는 이름으로 창 생성
+cv2.namedWindow('gray', cv2.WINDOW_NORMAL)  # gray 라는 이름으로 창 생성
+
+cv2.imshow('origin', img)  # origin 창에 이미지 표시
+cv2.imshow('gray', img_gray)  # gray 창에 이미지 표시
+
+cv2.moveWindow('origin', 0, 0)  # 창 위치 변경
+cv2.moveWindow('gray', 100, 100)  # 창 위치 변경
+
+cv2.waitKey(0)
+cv2.resizeWindow('origin', 500, 500)  # 창 크기 변경 (아직 변경 안됨)
+cv2.resizeWindow('gray', 500, 500)  # 창 크기 변경 (변경됨)
+
+cv2.waitKey(0)  # 아무키나 누르면
+cv2.destroyWindow('gray')  # gray 창 닫기
+
+cv2.waitKey(0)  # 아무키나 누르면
+cv2.destroyWindow('origin')  # origin 창 닫기
