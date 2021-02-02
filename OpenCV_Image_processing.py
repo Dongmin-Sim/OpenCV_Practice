@@ -87,8 +87,8 @@ cv2.destroyAllWindows()
 
 print(x, y, w, h)
 
-------------------------------------------------------------------
-컬러스페이스 RGB, BGR, RGBA
+#------------------------------------------------------------------
+#컬러스페이스 RGB, BGR, RGBA
 img = cv2.imread('img/cropped.jpg')  # 기본 값 옵션
 bgr = cv2.imread('img/cropped.jpg', cv2.IMREAD_COLOR)  # IMREAD_COLOR 옵션
 bgra = cv2.imread('img/cropped.jpg', cv2.IMREAD_UNCHANGED)
@@ -271,8 +271,8 @@ cv2.destroyAllWindows()
 # ------------------------------------------------------------------
 # 차영상
 
-img1 = cv2.imread('')
-img2 = cv2.imread('')
+img1 = cv2.imread('img/man1.jpg')
+img2 = cv2.imread('img/man1.jpg')
 img1_gray = cv2.imread(img1, cv2.COLOR_BGR2GRAY)
 img2_gray = cv2.imread(img2, cv2.COLOR_BGR2GRAY)
 
