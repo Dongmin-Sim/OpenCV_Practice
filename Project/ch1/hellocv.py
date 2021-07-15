@@ -6,7 +6,7 @@ import cv2
 print('opencv version : ', cv2.__version__)
 
 # 이미지 불러와 변수에 담기
-img = cv2.imread('images/ch01/cat.bmp', cv2.IMREAD_GRAYSCALE)
+img = cv2.imread('ch1/cat.bmp', cv2.IMREAD_GRAYSCALE)
 
 # 이미지 로드에 실패했을 경우 에러메세지 출력, interpreter 종료
 if img is None:

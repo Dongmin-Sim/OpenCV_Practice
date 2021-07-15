@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import cv2
 
 # matplot으로 컬러 영상 출력 , BGR -> RGB 변환
-imgBGR = cv2.imread('images/ch01/cat.bmp')
+imgBGR = cv2.imread('ch01/cat.bmp')
 imgRGB = cv2.cvtColor(imgBGR, cv2.COLOR_BGR2RGB)
 
 plt.axis('off')
