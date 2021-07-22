@@ -6,6 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
+.vscode/
+
 # Distribution / packaging
 .Python
 build/
@@ -247,4 +249,10 @@ fabric.properties
 .idea/
 
 # assets
+*.jpg
+*.bmp
+*.mp4
+*.avi
+*.png
+*.mov
 .assets/
